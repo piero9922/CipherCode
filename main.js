@@ -9,14 +9,14 @@ function encode(indexNumber,text){
         const letra = text[i]
         const characterCode = letra.charCodeAt(0)
         const formula = (characterCode - 65 + indexNumber) % 26 + 65
-        // console.log(characterCode - 65 + indexNumber)
-        // console.log(formula)
-        const nuevaLetra = String.fromCharCode(formula)
+        let nuevaLetra = String.fromCharCode(formula)
+
+        if(characterCode == 32){
+            nuevaLetra = " "
+        }
 
         contenido = contenido + nuevaLetra
-        // console.log(contenido)
-        // console.log( characterCode,characterCode + indexNumber)
-        // console.log(String.fromCharCode(characterCode))
+        
     }
     alert(`Tu codigo es ${contenido}`)
     return contenido
